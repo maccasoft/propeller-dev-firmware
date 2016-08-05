@@ -36,10 +36,12 @@
 #define UART_Rx       PORTBbits.RB5
 
 // Use following only for Hardware Flow Control
-#define UART_DTS PORTAbits.RA3
-#define UART_DTR LATCbits.LATC3
-#define UART_RTS LATBbits.LATB4
-#define UART_CTS PORTBbits.RB6
+#define UART_DTS      PORTAbits.RA3
+#define UART_DTR      LATCbits.LATC3
+#define UART_RTS      LATBbits.LATB4
+#define UART_CTS      PORTBbits.RB6
+
+#define mEnableRxPU() {WPUB5 = 1;} // Enable Rx pin pull-up
 
 #define mInitRTSPin() {TRISBbits.TRISB4 = 0;}   //Configure RTS as a digital output.
 #define mInitCTSPin() {TRISBbits.TRISB6 = 1;}   //Configure CTS as a digital input.  (Make sure pin is digital if ANxx functions is present on the pin)

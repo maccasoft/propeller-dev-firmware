@@ -48,9 +48,13 @@ void USART_Initialize()
        unsigned char c;
      
        ANSELHbits.ANS11 = 0;    // Make RB5 pin digital
+       RABPU = 0;
 
        UART_TRISRx = 1;         // RX
        UART_TRISTx = 0;         // TX
+
+       mEnableRxPU();
+
        TXSTA = 0x24;            // TX enable BRGH=1
        RCSTA = 0x90;            // Single Character RX
        // SPBRG = 0x71;
